@@ -6,9 +6,9 @@
 }
 
 .container{
-  margin: 10em auto;
+  margin: 10em auto auto;
   width: 750px;
-  height: 750px;
+  height: fit-content;
   text-align: center;
   padding: 1em;
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2), 0 10px 10px rgba(0, 0, 0, 0.1);
@@ -46,7 +46,7 @@
 }
 
 .error{
-
+  display: none;
 }
 
 .input{

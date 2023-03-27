@@ -6,10 +6,10 @@ import Checkbox from "./Checkbox"
 import '../App.css'
 import { useState, useRef } from "react"
 
-function Container(){
+function Container(props){
 
     const [email, setEmail] = useState("");
-    const [error, setError] = useState(null);
+    const [emailError, setEmailError] = useState(null);
 
     const [name, setName] = useState("");
     const [nameError, setNameError] = useState(null);
@@ -20,13 +20,13 @@ function Container(){
     const paymentValue = useRef("0")
     const acceptedTerms = useRef(false)
 
-    function newInput(e){
+    function newEmailInput(e){
         setEmail(e.target.value);
         if(!isValidEmail(e.target.value)){
-            setError("Email is invalid");
+            setEmailError("Email is invalid");
         }
         else{
-                setError(null);
+                setEmailError(null);
         }
     
     }
@@ -39,7 +39,7 @@ function Container(){
     function newNameInput(e){
         setName(e.target.value);
         if(!isValidName(e.target.value)){
-            setNameError("Pogrešno upisano ime (Ime + Prezime");
+            setNameError("Pogrešno upisano ime (Ime + Prezime)");
         }
         else{
             setNameError(null);
@@ -76,17 +76,45 @@ function Container(){
         acceptedTerms.current = !acceptedTerms.current
     }
 
+    function checkForErrors(){
+        if(emailError != null){
+            alert("Email address is invalid")
+            return 0
+        } 
+        else if(nameError != null) {
+            alert("Name is invalid")
+            return 0
+        } 
+        else if(stateValue.current == "0"){
+            alert("Please select a state")
+            return 0   
+        }
+        else if(addressError != null){
+            alert ("Adress is invalid")
+            return 0
+        }
+        else if(paymentValue.current == "0"){
+            alert("Please choose payment option")
+            return 0
+        }
+        else if(acceptedTerms.current != true){
+            alert("Please accept the terms")
+            return 0
+        }
+        props.assign(name, address, stateValue, email, paymentValue)
+    }
+
     return(
         <>
         <div className="container">
         <h3 className="header">Račun --&gt; Plaćanje</h3>
-        <Kontakt input={newInput} email={email} error={error}/>
+        <Kontakt input={newEmailInput} email={email} error={emailError}/>
         <Adresa nameInput={newNameInput} addressInput={newAddressInput}
             name={name} address={address} nameError={nameError}
             addressError={addressError} assignValue={assignStateValue}/>
         <Placanje assignValue={assignPaymentValue}/>
         <Checkbox changeAccepted={changeTermsValue}/>
-        <Botun />
+        <Botun errorCheck={checkForErrors} />
         </div>
         </>
     )

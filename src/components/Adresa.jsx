@@ -15,9 +15,9 @@ function Adresa(props){
                 <label id='label' htmlFor='Država'>Država:</label>
                 <select className='selection-box' onChange={e=>props.assignValue(e.target.value)}>
                     <option value="0">Odaberi državu</option>
-                    <option value="1">Hrvatska</option>
-                    <option value="2">Velika Britanija</option>
-                    <option value="3">SAD</option>
+                    <option value="Hrvatska">Hrvatska</option>
+                    <option value="Velika Britanija">Velika Britanija</option>
+                    <option value="SAD">SAD</option>
                 </select>
 
                 <label id="label" htmlFor="Adresa">Adresa</label>

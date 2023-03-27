@@ -1,9 +1,9 @@
 import '../App.css'
 
-function Botun(){
+function Botun(props){
     return (
         <>
-        <button>Naruči</button>
+        <button onClick={props.errorCheck}>Naruči</button>
         </>
     )
 }

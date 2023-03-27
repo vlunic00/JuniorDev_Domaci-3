@@ -7,10 +7,10 @@ function Placanje(props){
         <p className='title'>Način plaćanja</p>
             <div className='form'>
                 <label id='label'>
-                    <input type="radio" value="1" name='nacin-placanja' id='radio' onChange={e=>props.assignValue(e.target.value)}/>Pouzeće
+                    <input type="radio" value="Pouzeće" name='nacin-placanja' id='radio' onChange={e=>props.assignValue(e.target.value)}/>Pouzeće
                 </label>
                 <label id='label'>
-                    <input type="radio" value="2" name='nacin-placanja' id='radio' onChange={e=>props.assignValue(e.target.value)}/>Kartica
+                    <input type="radio" value="Kartica" name='nacin-placanja' id='radio' onChange={e=>props.assignValue(e.target.value)}/>Kartica
                 </label>
             </div>
         </div>
