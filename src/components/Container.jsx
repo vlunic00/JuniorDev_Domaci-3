@@ -101,7 +101,7 @@ function Container(props){
             alert("Please accept the terms")
             return 0
         }
-        props.assign(name, address, stateValue, email, paymentValue)
+        props.assign(name, address, stateValue.current, email, paymentValue.current)
     }
 
     return(

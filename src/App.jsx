@@ -19,24 +19,24 @@ function App() {
 
   function assignValuesToRef(nameValue, addressValue, stateValue, emailValue, paymentValue){
     
+    console.log(stateValue)
+
     userName.current = nameValue
     userAddress.current = addressValue
     userState.current = stateValue
     userEmail.current = emailValue
     paymentMethod.current = paymentValue
+    console.log(userState.current)
 
     setShow(true)
     
   }
 
-  function uploadInfo(){
-    return {name : userName.current, address : userAddress.current, state : userState.current, email : userEmail.current, payment : paymentMethod.c}
-  }
-
   return (
     <>
     <Container assign={assignValuesToRef}/>
-    {show && <Summary upload={uploadInfo}/>}
+    {show && <Summary name={userName.current} address={userAddress.current}
+      state={userState.current} email={userEmail.current} payment={paymentMethod.current}/>}
     </>
   )
 }
