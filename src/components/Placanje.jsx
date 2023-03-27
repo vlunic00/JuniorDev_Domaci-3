@@ -1,16 +1,16 @@
 import '../App.css'
 
-function Placanje(){
+function Placanje(props){
     return(
         <>
         <div className='form-with-title'>
         <p className='title'>Način plaćanja</p>
             <div className='form'>
                 <label id='label'>
-                    <input type="radio" value="Pouzece" name='nacin-placanja' id='radio' />Pouzeće
+                    <input type="radio" value="1" name='nacin-placanja' id='radio' onChange={e=>props.assignValue(e.target.value)}/>Pouzeće
                 </label>
                 <label id='label'>
-                    <input type="radio" value="Kartica" name='nacin-placanja' id='radio' />Kartica
+                    <input type="radio" value="2" name='nacin-placanja' id='radio' onChange={e=>props.assignValue(e.target.value)}/>Kartica
                 </label>
             </div>
         </div>

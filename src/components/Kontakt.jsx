@@ -8,7 +8,7 @@ function Kontakt(props){
         <div className='form-with-title'>
             <p className='title'>Kontakt</p>
             <div className="form">
-                <input type="text" className='input' id="email" placeholder='Email adresa...' value={props.email} onChange={props.action}/>
+                <input type="text" className='input' id="email" placeholder='Email adresa...' value={props.email} onChange={props.input}/>
                 <p className='error'>{props.error}</p>
             </div>
         </div>
